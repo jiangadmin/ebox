@@ -1,9 +1,10 @@
-package com.jiang.e_box;
+package com.jiang.e_box.Receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
+
+import com.jiang.e_box.Activity.MainActivity;
 
 /**
  * @author 编写人： xiaox

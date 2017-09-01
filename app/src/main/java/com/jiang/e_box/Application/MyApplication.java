@@ -1,4 +1,4 @@
-package com.jiang.e_box;
+package com.jiang.e_box.Application;
 
 import android.app.ActivityManager;
 import android.app.Application;
@@ -23,6 +23,10 @@ public class MyApplication extends Application {
 
     public static final String Mi_Push_APP_ID = "2882303761517573968";
     public static final String Mi_Push_APP_KEY = "5711757355968";
+
+    public static String ImageUrl;
+    public static String ImageName;
+
     @Override
     public void onCreate() {
         super.onCreate();

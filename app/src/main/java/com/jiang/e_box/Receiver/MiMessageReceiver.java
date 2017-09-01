@@ -1,9 +1,12 @@
-package com.jiang.e_box;
+package com.jiang.e_box.Receiver;
 
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.jiang.e_box.Activity.MainActivity;
+import com.jiang.e_box.Application.MyApplication;
+import com.jiang.e_box.Utils.SharedPreferencesUtil;
 import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
@@ -35,9 +38,13 @@ public class MiMessageReceiver extends PushMessageReceiver {
         } else if (!TextUtils.isEmpty(message.getUserAccount())) {
             mUserAccount = message.getUserAccount();
         }
+        MyApplication.ImageUrl = message.getContent();
+        MyApplication.ImageName = message.getDescription();
 
-        SharedPreferencesUtil.getInstance(context).putValue("新图",true);
-        SharedPreferencesUtil.getInstance(context).putValue("图地址","");
+        SharedPreferencesUtil.getInstance(context).putValue("新图", true);
+        SharedPreferencesUtil.getInstance(context).putValue("文件名", MyApplication.ImageName);
+
+        MainActivity.UpdateImg();
     }
 
     @Override
